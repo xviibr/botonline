@@ -61,7 +61,8 @@ async def payment(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, ephemeral=False)
 
 server_on()
+bot_token = os.getenv('TOKEN')
 if bot_token:
-    bot.run(os.getenv('TOKEN')) 
+    bot.run(bot_token)
 else:
-    print("Error: DISCORD_BOT_TOKEN not found. Please set it in your .env file or environment variables.")
+    print("Error: TOKEN not found. Please set it in your .env file or environment variables.")
