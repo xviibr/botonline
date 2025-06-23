@@ -64,6 +64,6 @@ async def payment(interaction: discord.Interaction):
 # ดึง Token จาก Environment Variable ที่โหลดจากไฟล์ .env
 bot_token = os.getenv('DISCORD_BOT_TOKEN') 
 if bot_token:
-    bot.run(bot_token)
+    bot.run(os.getenv('TOKEN')) 
 else:
     print("Error: DISCORD_BOT_TOKEN not found. Please set it in your .env file or environment variables.")
