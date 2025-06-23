@@ -3,7 +3,7 @@
 import discord
 from discord.ext import commands
 import os
-from dotenv import load_dotenv # เพิ่มเข้ามาเพื่อโหลด Token จากไฟล์ .env
+
 
 # นำเข้าฟังก์ชัน server_on จากไฟล์ myserver.py
 from myserver import server_on 
@@ -60,9 +60,7 @@ async def payment(interaction: discord.Interaction):
 
     await interaction.response.send_message(embed=embed, ephemeral=False)
 
-# รันบอทด้วย Token ของคุณ
-# ดึง Token จาก Environment Variable ที่โหลดจากไฟล์ .env
-bot_token = os.getenv('DISCORD_BOT_TOKEN') 
+server_on()
 if bot_token:
     bot.run(os.getenv('TOKEN')) 
 else:
