@@ -3,7 +3,7 @@
 import discord
 from discord.ext import commands
 import os
-
+from dotenv import load_dotenv # เพิ่มเข้ามาเพื่อโหลด Token จากไฟล์ .env
 
 # นำเข้าฟังก์ชัน server_on จากไฟล์ myserver.py
 from myserver import server_on 
@@ -60,9 +60,6 @@ async def payment(interaction: discord.Interaction):
 
     await interaction.response.send_message(embed=embed, ephemeral=False)
 
-server_on()
-bot_token = os.getenv('TOKEN')
-if bot_token:
-    bot.run(bot_token)
-else:
-    print("Error: TOKEN not found. Please set it in your .env file or environment variables.")
+
+server_on()  
+bot.run(os.getenv('TOKEN')) 
